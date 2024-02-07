@@ -66,6 +66,13 @@ public class QuizServiceImpl implements QuizService {
         return right;
     }
 
+    @Override
+    public void deleteQuizById(long id) {
+        quizRepository.findById(id).orElseThrow(
+                ()->new ResourceNotFoundException("Quiz not found by id : "+id));
+        quizRepository.deleteById(id);
+    }
+
     private QueDtoUser mapToDto(Question question) {
         return modelMapper.map(question,QueDtoUser.class);
     }

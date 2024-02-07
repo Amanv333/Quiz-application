@@ -10,4 +10,6 @@ public interface QuizService {
     List<QueDtoUser> getQuizForUser (long id);
 
     int getResult(long id, List<Response> responses);
+
+    void deleteQuizById(long id);
 }
